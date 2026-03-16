@@ -417,8 +417,8 @@ function update(dt) {
   updateParticles();
   checkCollisions();
 
-  // Wave clear?
-  const liveEnemies = enemies.filter(e => e.alive && e.type !== 'electrode');
+  // Wave clear (ignoring electrode and hulk type enemies)?
+  const liveEnemies = enemies.filter(e => e.alive && e.type !== 'electrode' && e.type !== 'hulk');
 
   // Check if enemies are gone AND we haven't already started the transition
   if (liveEnemies.length === 0 && state === 'playing') {
