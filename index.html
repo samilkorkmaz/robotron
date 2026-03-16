@@ -419,10 +419,16 @@ function update(dt) {
 
   // Wave clear?
   const liveEnemies = enemies.filter(e => e.alive && e.type !== 'electrode');
-  if (liveEnemies.length === 0) {
+
+  // Check if enemies are gone AND we haven't already started the transition
+  if (liveEnemies.length === 0 && state === 'playing') {
+    state = 'transition'; // Set a temporary state to stop this block from re-running
     wave++;
-    updateUI();
-    setTimeout(() => startWave(), 800);
+    updateUI();  
+    setTimeout(() => {
+      state = 'playing'; // Reset state to playing
+      startWave();
+    }, 800);
   }
 }
 
