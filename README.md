@@ -5,3 +5,5 @@ Game live on https://samilkorkmaz.github.io/robotron/
 
 TODO:
 * Make it playable on mobile in landscape mode with two red circles at the bottom simulating joysticks as used in the original arcade
+* Add sound effects
+* Use animated characters
